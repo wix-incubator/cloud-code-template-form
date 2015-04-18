@@ -1,0 +1,53 @@
+var https = require('https');
+
+var API_KEY = '_03mRfUQlCfoVaIiwvkWcQ';
+
+export function sendMail(from, name, message, phone) {
+	return new Promise(function(resolve, reject) {
+		var options = {
+	        hostname: 'mandrillapp.com',
+	        path: '/api/1.0/messages/send.json',
+	        method: 'POST'
+	    };
+	    
+	    var req = https.request(options, function (res) {
+	    	if(res.statusCode === 200){
+	    		resolve('Mail sent!');	
+	    	}else {
+	    		reject('HTTP request failed with status code:'+res.statusCode);		
+	    	}
+	    });
+	    
+	    req.on('error', function (err) {
+	        reject(err);
+	    })
+	    
+	    var bodyString = buildBodyString(from, name, message, phone);
+	    
+		req.setHeader('Content-Type', 'application/json');
+		req.setHeader('Content-Length', bodyString.length);
+	    req.write(bodyString);
+	    req.end();
+	});
+}
+
+
+function buildBodyString(from, name, message, phone) {
+	var body = {
+				key: API_KEY,
+				message: {
+					from_email: from,
+					from_name: name,
+					to: [{
+						email: 'alext@wix.com',
+						name: 'Contact Form',
+						type: 'to'
+					}],
+					autotext: 'true',
+					subject: 'Contact Form ',
+					html: message + '<br>' + '<b>Contact Phone:</b>' + phone
+				}
+			};
+	
+	return JSON.stringify(body);
+}

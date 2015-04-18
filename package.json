@@ -1,0 +1,11 @@
+{
+  "name": "site-extension",
+  "description": "Wix Contact Form",
+  "private": true,
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "wixLongDescription": "A contact form that uses mandril to send emails."
+}
+

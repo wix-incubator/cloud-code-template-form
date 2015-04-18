@@ -1,0 +1,147 @@
+body {
+	background: transparent;
+	font-family: helvetica, verdana;
+}
+
+/*form styles*/
+.contact-form {
+	margin: 10px;
+	text-align: center;
+	position: relative;
+}
+
+.contact-form fieldset {
+	width: 100%;
+	background: white;
+	border: 0px;
+	border-radius: 3px;
+	box-sizing: border-box;
+	padding: 20px 30px;
+	/*stacking fieldsets above each other*/
+	position: absolute;
+}
+
+
+label.error {
+	padding-bottom: 10px;
+	color: red;
+	font-weight: normal;
+	text-align: justify;
+	font-size: 13px;
+	float: left;
+}
+
+div.error {
+	display: none;
+	text-align: justify;
+	color: #f42123;
+	font-weight: normal;
+	text-align: justify;
+	font-size: 13px;
+
+}
+
+div.success {
+	margin-top: 20px;
+	display: none;
+	color: #00cd79;
+	font-weight: bold;
+}
+
+input.invalid,
+textarea.invalid {
+	color: black;
+	outline: #f42123 solid 2px;
+}
+
+/*inputs*/    	 
+input,
+textarea {
+	resize: none;
+	padding: 15px;
+	border: 1px solid #959595;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	color: black;
+	font-size: 13px;
+	display: block;
+	outline: none;
+}
+
+
+input:focus,
+textarea:focus {
+	border: 1px solid #959595;
+}
+
+/*placeholder style*/
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: black;
+    opacity: 1;
+}
+
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: black;
+   opacity: 1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: black;
+   opacity: 1;
+}
+
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color: black;
+   opacity: 1;
+}
+
+
+/*buttons*/
+.submit-button {
+	background: white;
+	font-weight: bold;
+	color: black;
+	border: 2px;
+	border-color: black;
+	border-style: solid;
+	cursor: pointer;
+	padding: 10px 5px;
+}
+
+.submit-button:hover,
+.submit-button:focus {
+	background: black;
+	color: white;
+	border-color: black;
+}    	
+
+/*loading*/
+.overlay {
+	display: none;
+    position: absolute;
+	top:        0;
+	left:       0;
+	height:     100%;
+    width:      100%;
+    background-color: rgba(172, 172, 172, .6);
+    z-index: 1000;
+}
+
+.overlay span {		    
+	width: 300px;
+    height: 200px;
+    line-height: 200px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+    background-color: white;
+    color: #2C3E50;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 27px 24px 0 rgba(0, 0, 0, 0.2);
+}

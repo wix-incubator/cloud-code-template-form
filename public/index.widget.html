@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="//sslstatic.wix.com/services/js-sdk/1.39.0/js/Wix.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+        <script src="contact-form.js"></script> 
+        
+        <link rel="stylesheet" type="text/css" href="contact-form.css"/>
+        
+        <title>Wix Code Starter!</title>
+    </head>    
+    <body>
+    	<form class="contact-form">
+    		<fieldset id="fieldset">
+    			<input type="text" name="name" placeholder="Name *"/>
+    			<input type="text" name="email" placeholder="Email *"/>
+    			<input type="text" name="phone" placeholder="Phone"/>
+    			<textarea name="message" rows="10" cols="30" placeholder="Message *"></textarea>
+    			<input type="button" name="submit" class="submit-button" value="SEND"/>
+    			<div class="error"><span>* Please fill in all required fields</span></div>
+    			
+    			<div class="success"><span>The form was successfully submited!</span></div>    			
+    			<div class="overlay"><span>Please wait while we submit your form...</span></div>
+    		</fieldset>
+    	</form>	
+    </body>
+</html>
