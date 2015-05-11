@@ -1,5 +1,5 @@
 import * as mailSender from 'backend/mailsender'
-	
+
 $(document).ready(function () {
 	$('.contact-form').validate({
 		errorClass: 'invalid',
@@ -31,15 +31,15 @@ $(document).ready(function () {
 			element.addClass(this.errorClass);
 		}
 	});
-    	
-	$('.submit-button').click(function () {		
+
+	$('.submit-button').click(function () {
 		if ($('.contact-form').valid()) {
-			$('div.error').hide();	    			
+			$('div.error').hide();
 			$('div.overlay').show();
-			
-			mailSender.sendMail($('input[name=email]').val(), 
-								$('input[name=name]').val(), 
-								$('textarea[name=message]').val(), 
+
+			mailSender.sendMail($('input[name=email]').val(),
+								$('input[name=name]').val(),
+								$('textarea[name=message]').val(),
 								$('input[name=phone]').val())
 			.then(function(){
 				$('div.overlay').hide();
@@ -53,14 +53,14 @@ $(document).ready(function () {
 			$('div.success').hide();
 		}
 	});
-	
+
 	function onError() {
 		$('.overlay span').text('Ooops something went wrong!');
 		setTimeout(function(){ $('div.overlay').hide(); }, 3000);
 	}
-	
+
 	function resetForm() {
-		$('.contact-form').find("input[type=text], textarea").val("");	
+		$('.contact-form').find("input[type=text], textarea").val("");
 	}
 });
 

@@ -1,34 +1,19 @@
-var https = require('https');
+import fetch from 'wix-fetch';
 
-var API_KEY = '_03mRfUQlCfoVaIiwvkWcQ';
+var API_KEY = 'your API key here';
+var EMAIL_TO = 'your email here';
 
 export function sendMail(from, name, message, phone) {
-	return new Promise(function(resolve, reject) {
-		var options = {
-	        hostname: 'mandrillapp.com',
-	        path: '/api/1.0/messages/send.json',
-	        method: 'POST'
-	    };
-	    
-	    var req = https.request(options, function (res) {
-	    	if(res.statusCode === 200){
-	    		resolve('Mail sent!');	
-	    	}else {
-	    		reject('HTTP request failed with status code:'+res.statusCode);		
-	    	}
-	    });
-	    
-	    req.on('error', function (err) {
-	        reject(err);
-	    })
-	    
-	    var bodyString = buildBodyString(from, name, message, phone);
-	    
-		req.setHeader('Content-Type', 'application/json');
-		req.setHeader('Content-Length', bodyString.length);
-	    req.write(bodyString);
-	    req.end();
-	});
+
+	return fetch('http://mandrillapp.com/api/1.0/messages/send.json',
+				 { method: 'POST', body:  buildBodyString(from, name, message, phone)}).
+				 then(function(res) {
+				 	if(res.status === 200){
+			    		return 'Mail sent!';
+			    	}else {
+			    		return Promise.reject('HTTP request failed with status code:'+res.status);
+			    	}
+				 });
 }
 
 
@@ -39,7 +24,7 @@ function buildBodyString(from, name, message, phone) {
 					from_email: from,
 					from_name: name,
 					to: [{
-						email: 'alext@wix.com',
+						email: EMAIL_TO,
 						name: 'Contact Form',
 						type: 'to'
 					}],
@@ -48,6 +33,6 @@ function buildBodyString(from, name, message, phone) {
 					html: message + '<br>' + '<b>Contact Phone:</b>' + phone
 				}
 			};
-	
+
 	return JSON.stringify(body);
 }

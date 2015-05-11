@@ -51,10 +51,10 @@ div.success {
 input.invalid,
 textarea.invalid {
 	color: black;
-	outline: #f42123 solid 2px;
+	border: 1px solid #f42123;
 }
 
-/*inputs*/    	 
+/*inputs*/
 input,
 textarea {
 	resize: none;
@@ -116,7 +116,7 @@ textarea:focus {
 	background: black;
 	color: white;
 	border-color: black;
-}    	
+}
 
 /*loading*/
 .overlay {
@@ -130,12 +130,12 @@ textarea:focus {
     z-index: 1000;
 }
 
-.overlay span {		    
+.overlay span {
 	width: 300px;
     height: 200px;
     line-height: 200px;
     position: fixed;
-    top: 50%; 
+    top: 50%;
     left: 50%;
     margin-top: -150px;
     margin-left: -150px;
