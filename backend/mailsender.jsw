@@ -1,12 +1,12 @@
 import fetch from 'wix-fetch';
 
 var API_KEY = 'your API key here';
-var EMAIL_TO = 'your email here';
+var EMAIL_TO = ['your email here'];
 
-export function sendMail(from, name, message, phone) {
+export function sendMail(from, name, message, phone, emailToIndex) {
 
 	return fetch('http://mandrillapp.com/api/1.0/messages/send.json',
-				 { method: 'POST', body:  buildBodyString(from, name, message, phone)}).
+				 { method: 'POST', body:  buildBodyString(from, name, message, phone, emailToIndex)}).
 				 then(function(res) {
 				 	if(res.status === 200){
 			    		return 'Mail sent!';
@@ -17,14 +17,14 @@ export function sendMail(from, name, message, phone) {
 }
 
 
-function buildBodyString(from, name, message, phone) {
+function buildBodyString(from, name, message, phone, emailToIndex) {
 	var body = {
 				key: API_KEY,
 				message: {
 					from_email: from,
 					from_name: name,
 					to: [{
-						email: EMAIL_TO,
+						email: EMAIL_TO[emailToIndex],
 						name: 'Contact Form',
 						type: 'to'
 					}],

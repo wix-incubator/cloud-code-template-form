@@ -40,7 +40,9 @@ $(document).ready(function () {
 			mailSender.sendMail($('input[name=email]').val(),
 								$('input[name=name]').val(),
 								$('textarea[name=message]').val(),
-								$('input[name=phone]').val())
+								$('input[name=phone]').val(),
+								$('input[name=emailToIndex]').val()
+								)
 			.then(function(){
 				$('div.overlay').hide();
 				$('div.success').show();
