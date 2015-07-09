@@ -1,6 +1,8 @@
-import * as mailSender from 'backend/mailsender'
+import * as mailSender from 'backend/mailsender';
 
 $(document).ready(function () {
+	'use strict';
+
 	$('.contact-form').validate({
 		errorClass: 'invalid',
 		rules: {
@@ -13,7 +15,7 @@ $(document).ready(function () {
 			},
 			phone: {
 				required: false,
-				regex:"[0-9\-\(\)\s]+"
+				regex:'[0-9\-\(\)\s]+'
 			},
 			message: {
 				required: true
@@ -62,16 +64,16 @@ $(document).ready(function () {
 	}
 
 	function resetForm() {
-		$('.contact-form').find("input[type=text], textarea").val("");
+		$('.contact-form').find('input[type=text], textarea').val('');
 	}
 });
 
 //Add a custom regex validatior to the validation plugin.
 $.validator.addMethod(
-    "regex",
+    'regex',
     function(value, element, regexp) {
         var re = new RegExp(regexp);
         return this.optional(element) || re.test(value);
     },
-    "Please check your input."
+    'Please check your input.'
 );

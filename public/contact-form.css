@@ -13,7 +13,7 @@ body {
 .contact-form fieldset {
 	width: 100%;
 	background: white;
-	border: 0px;
+	border: 0;
 	border-radius: 3px;
 	box-sizing: border-box;
 	padding: 20px 30px;
@@ -36,12 +36,11 @@ div.error {
 	text-align: justify;
 	color: #f42123;
 	font-weight: normal;
-	text-align: justify;
 	font-size: 13px;
 
 }
 
-div.success {
+.success {
 	margin-top: 20px;
 	display: none;
 	color: #00cd79;
@@ -66,13 +65,13 @@ textarea {
 	color: black;
 	font-size: 13px;
 	display: block;
-	outline: none;
 }
 
 
 input:focus,
 textarea:focus {
 	border: 1px solid #959595;
+	outline: none;
 }
 
 /*placeholder style*/
@@ -121,27 +120,28 @@ textarea:focus {
 /*loading*/
 .overlay {
 	display: none;
-    position: absolute;
+  position: absolute;
 	top:        0;
 	left:       0;
 	height:     100%;
-    width:      100%;
-    background-color: rgba(172, 172, 172, .6);
-    z-index: 1000;
+  width:      100%;
+  background-color: rgb(172, 172, 172);
+  background-color: rgba(172, 172, 172, .6);
+  z-index: 1000;
 }
 
 .overlay span {
 	width: 300px;
-    height: 200px;
-    line-height: 200px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -150px;
-    margin-left: -150px;
-    background-color: white;
-    color: #2C3E50;
-    border-radius: 5px;
-    text-align: center;
-    box-shadow: 0px 27px 24px 0 rgba(0, 0, 0, 0.2);
+  height: 200px;
+  line-height: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -150px;
+  background-color: white;
+  color: #2C3E50;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2);
 }
