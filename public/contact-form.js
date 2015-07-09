@@ -1,9 +1,16 @@
 import * as mailSender from 'backend/mailsender';
 
-$(document).ready(function () {
+$(function onDocumentReady() {
 	'use strict';
 
-	$('.contact-form').validate({
+	var $contactForm = $('.contact-form');
+	var $errorMessage = $('.error');
+	var $overlay = $('.overlay');
+	var $overlayMessage = $('.overlay-message');
+	var $successMessage = $('.success');
+	var $submitButton = $('.submit-button');
+
+	$contactForm.validate({
 		errorClass: 'invalid',
 		rules: {
 			name: {
@@ -24,9 +31,9 @@ $(document).ready(function () {
 		invalidHandler: function(event, validator) {
 		    var errors = validator.numberOfInvalids();
 		    if (errors) {
-		      $('div.error').show();
+		      $errorMessage.show();
 		    } else {
-		      $('div.error').hide();
+		      $errorMessage.hide();
 			}
 		},
 		errorPlacement: function(error, element) {
@@ -34,37 +41,35 @@ $(document).ready(function () {
 		}
 	});
 
-	$('.submit-button').click(function () {
-		if ($('.contact-form').valid()) {
-			$('div.error').hide();
-			$('div.overlay').show();
+	$submitButton.click(function () {
+		if ($contactForm.valid()) {
+			$errorMessage.hide();
+			$overlay.show();
 
 			mailSender.sendMail($('input[name=email]').val(),
 								$('input[name=name]').val(),
 								$('textarea[name=message]').val(),
 								$('input[name=phone]').val(),
-								$('input[name=emailToIndex]').val()
-								)
-			.then(function(){
-				$('div.overlay').hide();
-				$('div.success').show();
+								$('input[name=emailToIndex]').val())
+			.then(function() {
+				$overlay.hide();
+				$successMessage.show();
 				resetForm();
-			}).catch(function(error){
-				console.log(error);
-				onError();
+			}).catch(function(error) {
+				onError(error);
 			});
 		} else {
-			$('div.success').hide();
+			$successMessage.hide();
 		}
 	});
 
-	function onError() {
-		$('.overlay span').text('Ooops something went wrong!');
-		setTimeout(function(){ $('div.overlay').hide(); }, 3000);
+	function onError(error) {
+		$overlayMessage.text('Ooops something went wrong! Error: ' + error);
+		setTimeout(function(){ $overlay.hide(); }, 3000);
 	}
 
 	function resetForm() {
-		$('.contact-form').find('input[type=text], textarea').val('');
+		$contactForm.find('.form-input').val('');
 	}
 });
 

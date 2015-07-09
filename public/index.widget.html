@@ -12,17 +12,17 @@
 
 	<body>
 		<form class="contact-form">
-			<fieldset id="fieldset">
+			<fieldset class="contact-form-fields">
 				<input type="hidden" name="emailToIndex" value="0">
-				<input type="text" name="name" placeholder="Name *">
-				<input type="text" name="email" placeholder="Email *">
-				<input type="text" name="phone" placeholder="Phone">
-				<textarea name="message" rows="10" cols="30" placeholder="Message *"></textarea>
-				<input type="button" name="submit" class="submit-button" value="SEND">
+				<input type="text" name="name" class="form-input" placeholder="Name *">
+				<input type="text" name="email" class="form-input" placeholder="Email *">
+				<input type="text" name="phone" class="form-input" placeholder="Phone">
+				<textarea name="message" rows="10" cols="30" class="form-input" placeholder="Message *"></textarea>
+				<button type="button" name="submit" class="submit-button">SEND</button>
 				<div class="error"><span>* Please fill in all required fields</span></div>
 
 				<div class="success"><span>The form was successfully submited!</span></div>
-				<div class="overlay"><span>Please wait while we submit your form...</span></div>
+				<div class="overlay"><span class="overlay-message">Please wait while we submit your form...</span></div>
 			</fieldset>
 		</form>
 	</body>

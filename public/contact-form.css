@@ -10,9 +10,9 @@ body {
 	position: relative;
 }
 
-.contact-form fieldset {
+.contact-form-fields {
 	width: 100%;
-	background: white;
+	background: #fff;
 	border: 0;
 	border-radius: 3px;
 	box-sizing: border-box;
@@ -21,23 +21,12 @@ body {
 	position: absolute;
 }
 
-
-label.error {
-	padding-bottom: 10px;
-	color: red;
-	font-weight: normal;
-	text-align: justify;
-	font-size: 13px;
-	float: left;
-}
-
-div.error {
+.error {
 	display: none;
 	text-align: justify;
 	color: #f42123;
 	font-weight: normal;
 	font-size: 13px;
-
 }
 
 .success {
@@ -47,29 +36,26 @@ div.error {
 	font-weight: bold;
 }
 
-input.invalid,
-textarea.invalid {
-	color: black;
+.form-input.invalid {
+	color: #000;
 	border: 1px solid #f42123;
 }
 
 /*inputs*/
-input,
-textarea {
+.form-input {
 	resize: none;
 	padding: 15px;
 	border: 1px solid #959595;
 	margin-bottom: 10px;
 	width: 100%;
 	box-sizing: border-box;
-	color: black;
+	color: #000;
 	font-size: 13px;
 	display: block;
 }
 
 
-input:focus,
-textarea:focus {
+.form-input:focus {
 	border: 1px solid #959595;
 	outline: none;
 }
@@ -100,37 +86,41 @@ textarea:focus {
 
 /*buttons*/
 .submit-button {
-	background: white;
+  font-size: 13px;
+	background: #fff;
 	font-weight: bold;
-	color: black;
-	border: 2px;
-	border-color: black;
+	color: #000;
+	border-color: #000;
 	border-style: solid;
 	cursor: pointer;
+	box-sizing: border-box;
 	padding: 10px 5px;
+	width: 100%;
+	margin-bottom: 10px;
 }
 
 .submit-button:hover,
 .submit-button:focus {
-	background: black;
-	color: white;
-	border-color: black;
+	background: #000;
+	color: #fff;
+	border-color: #000;
+	outline: none;
 }
 
 /*loading*/
 .overlay {
 	display: none;
   position: absolute;
-	top:        0;
-	left:       0;
-	height:     100%;
-  width:      100%;
+	top: 0;
+	left: 0;
+	height: 100%;
+  width: 100%;
   background-color: rgb(172, 172, 172);
   background-color: rgba(172, 172, 172, .6);
   z-index: 1000;
 }
 
-.overlay span {
+.overlay-message {
 	width: 300px;
   height: 200px;
   line-height: 200px;
@@ -139,8 +129,8 @@ textarea:focus {
   left: 50%;
   margin-top: -150px;
   margin-left: -150px;
-  background-color: white;
-  color: #2C3E50;
+  background-color: #fff;
+  color: #2c3e50;
   border-radius: 5px;
   text-align: center;
   box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2);
