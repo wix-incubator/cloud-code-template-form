@@ -64,7 +64,7 @@ $(function onDocumentReady() {
 	});
 
 	function onError(error) {
-		$overlayMessage.text('Ooops something went wrong! Error: ' + error);
+		$overlayMessage.text('Oops! Something went wrong.');
 		setTimeout(function(){ $overlay.hide(); }, 3000);
 	}
 
